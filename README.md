@@ -1,6 +1,6 @@
 # Projeto Desenvolvimento Web
 
-# Bem vindo a meu projeto de Desenvolvimento Web Full-Stack -carRent-
+# Bem vindo a meu projeto de Desenvolvimento Web Full-Stack -carRent
 
 ## Tecnologias Utilizadas
 - CSS3
