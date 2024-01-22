@@ -21,7 +21,7 @@ InferCreationAttributes<UserModel>> {
 
   declare balance: number;
 
-  declare vehicles: Array<number>;
+  declare vehicles: string;
 }
 
 UserModel.init({
@@ -32,27 +32,27 @@ UserModel.init({
     autoIncrement: true,
   },
   userName: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(20),
     allowNull: false,
   },
   email: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(50),
     allowNull: false,
   },
   balance: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(20),
     allowNull: false,
   },
   cpf: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(50),
     allowNull: false,
   },
   password: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(30),
     allowNull: false,
   },
   vehicles: {
-    type: DataTypes.ARRAY,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 }, {

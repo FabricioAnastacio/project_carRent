@@ -32,7 +32,7 @@ export default {
         allowNull: false,
       },
       vehicles: {
-        type: DataTypes.ARRAY,
+        type: DataTypes.STRING,
         allowNull: true,
       },
     });

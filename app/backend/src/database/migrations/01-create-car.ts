@@ -37,6 +37,6 @@ export default {
     });
   },
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('mcycles');
+    return queryInterface.dropTable('cars');
   },
 };

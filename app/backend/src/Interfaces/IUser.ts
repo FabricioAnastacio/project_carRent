@@ -5,5 +5,5 @@ export interface IUser {
   cpf: string,
   password: string,
   balance: string,
-  vehicles: Array<number>
+  vehicles: string
 }

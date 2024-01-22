@@ -30,7 +30,7 @@ StoreModel.init({
     primaryKey: true,
   },
   name: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(20),
     allowNull: false,
   },
   carId: {
@@ -51,8 +51,8 @@ StoreModel.init({
   underscored: true,
 });
 
-StoreModel.belongsTo(CarModel, { foreignKey: 'carId', as: 'car' });
-StoreModel.belongsTo(UserModel, { foreignKey: 'userId', as: 'user' });
-StoreModel.belongsTo(McycleModel, { foreignKey: 'mcycleId', as: 'mcycle' });
+StoreModel.belongsTo(CarModel, { foreignKey: 'carId', as: 'cars' });
+StoreModel.belongsTo(UserModel, { foreignKey: 'userId', as: 'users' });
+StoreModel.belongsTo(McycleModel, { foreignKey: 'mcycleId', as: 'mcycles' });
 
 export default StoreModel;
