@@ -24,7 +24,7 @@ export default {
         allowNull: false,
       },
       balance: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       cpf: {
