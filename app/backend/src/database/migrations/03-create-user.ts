@@ -35,6 +35,10 @@ export default {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     });
   },
   down(queryInterface: QueryInterface) {

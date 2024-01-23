@@ -19,9 +19,11 @@ InferCreationAttributes<UserModel>> {
 
   declare cpf: string;
 
-  declare balance: number;
+  declare balance: string;
 
   declare vehicles: string;
+
+  declare role: string;
 }
 
 UserModel.init({
@@ -53,6 +55,10 @@ UserModel.init({
   },
   vehicles: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  role: {
+    type: DataTypes.STRING(50),
     allowNull: false,
   },
 }, {

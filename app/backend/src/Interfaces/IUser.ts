@@ -5,5 +5,6 @@ export interface IUser {
   cpf: string,
   password: string,
   balance: string,
-  vehicles: string
+  vehicles: string,
+  role: string
 }
