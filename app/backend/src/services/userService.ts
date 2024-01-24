@@ -1,10 +1,11 @@
 import * as bcrypt from 'bcryptjs';
 import { ServiceResponse } from '../Interfaces/serviceResponse';
-import { ILogin, ILoginValidation } from '../Interfaces/ILogin';
+import { ILogin, ILoginRole, ILoginValidation } from '../Interfaces/ILogin';
 import IToken from '../Interfaces/IToken';
 import verifyUser from './validation/validateInput';
-import JWT from '../utils/JWT';
+import JWT, { TokenPayload } from '../utils/JWT';
 import ModelUser from '../models/userModel';
+import { IUser } from '../Interfaces/IUser';
 
 class UserService {
   constructor(
@@ -29,6 +30,15 @@ class UserService {
     const token = JWT.createToken(payload);
 
     return { status: 'SUCCESSFUL', data: { token } };
+  }
+
+  public async getDataUser(payload: TokenPayload): Promise<ServiceResponse<ILoginRole>> {
+    const { email } = payload;
+    const user = await this.userModel.findByEmail(email);
+
+    const { role } = user as IUser;
+
+    return { status: 'SUCCESSFUL', data: { role } };
   }
 }
 

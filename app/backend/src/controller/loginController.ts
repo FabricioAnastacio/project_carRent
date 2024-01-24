@@ -13,4 +13,11 @@ export default class LoginController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async getRole(req: Request, res: Response): Promise<Response> {
+    const { payload } = req.body;
+    const { status, data } = await this.serviceUser.getDataUser(payload);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }
