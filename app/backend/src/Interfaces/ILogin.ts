@@ -11,4 +11,5 @@ export interface ILoginRole {
 
 export interface ILogin {
   findByEmail(email: string): Promise<IUser | null>,
+  createUser(user: IUser): Promise<void>
 }

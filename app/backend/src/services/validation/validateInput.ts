@@ -1,9 +1,11 @@
 import { ServiceError } from '../../Interfaces/serviceResponse';
 import { ILoginValidation } from '../../Interfaces/ILogin';
+import { IRequestUser } from '../../Interfaces/IUser';
+import verifyNewDataUser from './schemas';
 
 const emailValid = /^[a-z0-9]+@[a-z0-9]+\.[a-z]/i;
 
-function verifyUser(data: ILoginValidation): ServiceError | null {
+export function verifyUser(data: ILoginValidation): ServiceError | null {
   const { email, password } = data;
 
   if (!email || !password) {
@@ -17,4 +19,8 @@ function verifyUser(data: ILoginValidation): ServiceError | null {
   return null;
 }
 
-export default verifyUser;
+export function validateDataUser(data: IRequestUser): ServiceError | null {
+  const { error } = verifyNewDataUser.validate(data);
+  if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
+  return null;
+}

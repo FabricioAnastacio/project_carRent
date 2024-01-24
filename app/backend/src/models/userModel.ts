@@ -9,6 +9,10 @@ class ModelUser implements ILogin {
     const user = await this.model.findOne({ where: { email } });
     return user;
   }
+
+  async createUser(user: IUser): Promise<void> {
+    await this.model.create(user);
+  }
 }
 
 export default ModelUser;

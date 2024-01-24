@@ -1,5 +1,11 @@
 export type ServiceErrorType =
-'UNAUTHORIZED' | 'NOT_FOUND' | 'INVALID_DATA' | 'INVALID_VALUE' | 'UNAUTHORIZED' | 'INVALID_SIZE';
+'UNAUTHORIZED'
+| 'NOT_FOUND'
+| 'INVALID_DATA'
+| 'INVALID_VALUE'
+| 'UNAUTHORIZED'
+| 'INVALID_SIZE'
+| 'CONFLICT';
 
 export type ServiceError = {
   status: ServiceErrorType,
