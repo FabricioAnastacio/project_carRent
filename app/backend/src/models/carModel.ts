@@ -10,7 +10,7 @@ class ModelCar implements ICarModel {
     return cars;
   }
 
-  async findById(id: string): Promise<ICar | null> {
+  async findById(id: number): Promise<ICar | null> {
     const car = await this.model.findOne({ where: { id } });
 
     return car;
@@ -20,14 +20,14 @@ class ModelCar implements ICarModel {
     await this.model.create(car);
   }
 
-  async updateCar(newCar: ICar, id: string): Promise<void> {
+  async updateCar(newCar: ICar, id: number): Promise<void> {
     await this.model.update(
       { ...newCar },
       { where: { id } },
     );
   }
 
-  async deleteCar(id: string): Promise<void> {
+  async deleteCar(id: number): Promise<void> {
     await this.model.destroy({ where: { id } });
   }
 }

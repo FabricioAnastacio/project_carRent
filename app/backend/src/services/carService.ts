@@ -14,6 +14,14 @@ class CarService {
 
     return { status: 'SUCCESSFUL', data: cars };
   }
+
+  public async getByIdCar(id: number): Promise<ServiceResponse<ICar>> {
+    const car = await this.modelCar.findById(id);
+
+    if (!car) return { status: 'NOT_FOUND', data: { message: 'Error, car not found' } };
+
+    return { status: 'SUCCESSFUL', data: car };
+  }
 }
 
 export default CarService;

@@ -12,4 +12,11 @@ export default class CarController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async getCarById(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { status, data } = await this.serviceCar.getByIdCar(Number(id));
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }
