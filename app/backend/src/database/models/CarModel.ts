@@ -3,7 +3,7 @@ import db from '.';
 
 class CarModel extends Model<InferAttributes<CarModel>,
 InferCreationAttributes<CarModel>> {
-  declare id: number;
+  declare id: number | undefined;
 
   declare model: string;
 
