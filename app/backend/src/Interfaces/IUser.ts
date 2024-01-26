@@ -16,9 +16,8 @@ export interface IRequestUser {
   cpf: string,
 }
 
-// export interface IResponseUser {
-//   userName: string,
-//   email: string,
-//   cpf: string,
-//   role: string
-// }
+export interface IUpdateUser {
+  userName: string,
+  password: string,
+  email: string,
+}

@@ -2,9 +2,9 @@ import * as bcrypt from 'bcryptjs';
 import { ServiceResponse } from '../Interfaces/serviceResponse';
 import { ILogin, ILoginRole, ILoginValidation } from '../Interfaces/ILogin';
 import IToken from '../Interfaces/IToken';
-import { validateDataUser, verifyUser } from './validation/validateInput';
+import { validateDataUpdateUser, validateDataUser, verifyUser } from './validation/validateInput';
 import JWT, { TokenPayload } from '../utils/JWT';
-import { IRequestUser, IUser } from '../Interfaces/IUser';
+import { IRequestUser, IUpdateUser, IUser } from '../Interfaces/IUser';
 import ModelUser from '../models/userModel';
 
 class UserService {
@@ -62,6 +62,24 @@ class UserService {
     const token = JWT.createToken({ email: newUser.email });
 
     return { status: 'CREATED', data: { token } };
+  }
+
+  public async updateDataUser(
+    newData: IUpdateUser,
+    emailUser: string,
+  ): Promise<ServiceResponse<string>> {
+    const error = validateDataUpdateUser(newData);
+    if (error) return { status: error.status, data: error.data };
+
+    const upUser = {
+      userName: newData.userName,
+      email: newData.email,
+      password: bcrypt.hashSync(newData.password),
+    };
+
+    await this.userModel.updateUser(upUser, emailUser);
+
+    return { status: 'SUCCESSFUL', data: { message: 'Updated' } };
   }
 }
 

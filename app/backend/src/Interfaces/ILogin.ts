@@ -1,4 +1,4 @@
-import { IUser } from './IUser';
+import { IUpdateUser, IUser } from './IUser';
 
 export interface ILoginValidation {
   email: string,
@@ -11,5 +11,6 @@ export interface ILoginRole {
 
 export interface ILogin {
   findByEmail(email: string): Promise<IUser | null>,
-  createUser(user: IUser): Promise<void>
+  createUser(user: IUser): Promise<void>,
+  updateUser(newDtaUser: IUpdateUser, email: string): Promise<void>
 }

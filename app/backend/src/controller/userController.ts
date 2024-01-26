@@ -7,9 +7,16 @@ export default class UserController {
     private serviceUser = new UserService(),
   ) {}
 
-  public async CreateUser(req: Request, res: Response): Promise<Response> {
+  public async createUser(req: Request, res: Response): Promise<Response> {
     const newDtaPeople = req.body;
     const { status, data } = await this.serviceUser.addNewUser(newDtaPeople);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
+  public async updateUser(req: Request, res: Response): Promise<Response> {
+    const { payload, ...dataUpdate } = req.body;
+    const { status, data } = await this.serviceUser.updateDataUser(dataUpdate, payload.email);
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
