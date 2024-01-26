@@ -5,7 +5,8 @@ export type ServiceErrorType =
 | 'INVALID_VALUE'
 | 'UNAUTHORIZED'
 | 'INVALID_SIZE'
-| 'CONFLICT';
+| 'CONFLICT'
+| 'DELETED';
 
 export type ServiceError = {
   status: ServiceErrorType,

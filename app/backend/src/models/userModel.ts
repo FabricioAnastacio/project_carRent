@@ -20,6 +20,10 @@ class ModelUser implements ILogin {
       { where: { email } },
     );
   }
+
+  async delete(email: string): Promise<void> {
+    this.model.destroy({ where: { email } });
+  }
 }
 
 export default ModelUser;

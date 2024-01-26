@@ -12,5 +12,6 @@ export interface ILoginRole {
 export interface ILogin {
   findByEmail(email: string): Promise<IUser | null>,
   createUser(user: IUser): Promise<void>,
-  updateUser(newDtaUser: IUpdateUser, email: string): Promise<void>
+  updateUser(newDtaUser: IUpdateUser, email: string): Promise<void>,
+  delete(email: string): Promise<void>
 }

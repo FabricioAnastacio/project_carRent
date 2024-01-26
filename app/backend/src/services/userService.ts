@@ -19,8 +19,9 @@ class UserService {
     if (error) return { status: error.status, data: error.data };
 
     const user = await this.userModel.findByEmail(email);
+    if (!user) return { status: 'NOT_FOUND', data: { message: 'User not found' } };
 
-    if (!user || !bcrypt.compareSync(password, user.password)) {
+    if (!bcrypt.compareSync(password, user.password)) {
       return { status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' } };
     }
 
@@ -80,6 +81,12 @@ class UserService {
     await this.userModel.updateUser(upUser, emailUser);
 
     return { status: 'SUCCESSFUL', data: { message: 'Updated' } };
+  }
+
+  public async deleteUser(email: string): Promise<ServiceResponse<void>> {
+    await this.userModel.delete(email);
+
+    return { status: 'DELETED', data: { message: '' } };
   }
 }
 

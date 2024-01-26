@@ -20,4 +20,11 @@ export default class UserController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const { payload } = req.body;
+    const { status } = await this.serviceUser.deleteUser(payload.email);
+
+    return res.status(mapStatusHTTP(status));
+  }
 }
