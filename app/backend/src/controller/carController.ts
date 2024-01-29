@@ -19,4 +19,11 @@ export default class CarController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async addNewCar(req: Request, res: Response): Promise<Response> {
+    const { payload, ...newCar } = req.body;
+    const { status, data } = await this.serviceCar.addCar(newCar, payload.role);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }

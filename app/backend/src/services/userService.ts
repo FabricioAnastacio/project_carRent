@@ -27,6 +27,7 @@ class UserService {
 
     const payload = {
       email,
+      role: user.role,
     };
     const token = JWT.createToken(payload);
 
@@ -60,7 +61,7 @@ class UserService {
     };
 
     await this.userModel.createUser(newUser);
-    const token = JWT.createToken({ email: newUser.email });
+    const token = JWT.createToken({ email: newUser.email, role: newUser.role });
 
     return { status: 'CREATED', data: { token } };
   }

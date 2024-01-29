@@ -32,7 +32,7 @@ export default {
           cpf: '130.325.769-21',
           balance: '20.200',
           vehicles: null,
-          role: 'user',
+          role: 'admin',
           // senhaMuuuitoFraca
         },
       ],

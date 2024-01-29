@@ -2,6 +2,7 @@ import { Secret, SignOptions, sign, verify } from 'jsonwebtoken';
 
 export type TokenPayload = {
   email: string,
+  role: string
 };
 
 export default class JWT {

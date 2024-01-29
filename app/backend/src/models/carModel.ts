@@ -16,8 +16,9 @@ class ModelCar implements ICarModel {
     return car;
   }
 
-  async AddCar(car: ICar): Promise<void> {
-    await this.model.create(car);
+  async AddCar(car: ICar): Promise<ICar> {
+    const newCar = await this.model.create(car);
+    return newCar.dataValues;
   }
 
   async updateCar(newCar: ICar, id: number): Promise<void> {

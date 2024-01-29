@@ -1,6 +1,7 @@
 import ModelCar from '../models/carModel';
 import { ICar, ICarModel } from '../Interfaces/ICar';
 import { ServiceResponse } from '../Interfaces/serviceResponse';
+import { validateDataCar } from './validation/validateInput';
 
 class CarService {
   constructor(
@@ -21,6 +22,19 @@ class CarService {
     if (!car) return { status: 'NOT_FOUND', data: { message: 'Error, car not found' } };
 
     return { status: 'SUCCESSFUL', data: car };
+  }
+
+  public async addCar(car: ICar, role: string): Promise<ServiceResponse<ICar>> {
+    if (role !== 'admin') {
+      return { status: 'UNAUTHORIZED', data: { message: 'Unauthorized user' } };
+    }
+
+    const error = validateDataCar(car);
+    if (error) return { status: error.status, data: error.data };
+
+    const newCar = await this.modelCar.AddCar(car);
+
+    return { status: 'SUCCESSFUL', data: newCar };
   }
 }
 
