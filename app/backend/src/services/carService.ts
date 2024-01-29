@@ -36,6 +36,18 @@ class CarService {
 
     return { status: 'SUCCESSFUL', data: newCar };
   }
+
+  public async upCar(car: ICar, id: number, role: string): Promise<ServiceResponse<ICar>> {
+    if (role !== 'admin') {
+      return { status: 'UNAUTHORIZED', data: { message: 'Unauthorized user' } };
+    }
+
+    await this.modelCar.updateCar(car, id);
+
+    const carUpdated = await this.modelCar.findById(id) as ICar;
+
+    return { status: 'SUCCESSFUL', data: carUpdated };
+  }
 }
 
 export default CarService;

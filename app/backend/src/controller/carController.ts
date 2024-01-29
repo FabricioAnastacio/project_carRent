@@ -26,4 +26,12 @@ export default class CarController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async updateCar(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { payload, ...newdtaCar } = req.body;
+    const { status, data } = await this.serviceCar.upCar(newdtaCar, Number(id), payload.role);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }
