@@ -20,6 +20,14 @@ export function verifyUser(data: ILoginValidation): ServiceError | null {
   return null;
 }
 
+export function verifyRoleUser(role: string): ServiceError | null {
+  if (role !== 'admin') {
+    return { status: 'UNAUTHORIZED', data: { message: 'Unauthorized user' } };
+  }
+
+  return null;
+}
+
 export function validateDataUser(data: IRequestUser): ServiceError | null {
   const { error } = verifyNewDataUser.validate(data);
   if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };

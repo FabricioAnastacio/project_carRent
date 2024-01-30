@@ -10,5 +10,6 @@ carRouter.get('/', Validations.validateJWT, (req, res) => carController.getCars(
 carRouter.get('/:id', Validations.validateJWT, (req, res) => carController.getCarById(req, res));
 carRouter.post('/', Validations.validateJWT, (req, res) => carController.addNewCar(req, res));
 carRouter.put('/:id', Validations.validateJWT, (req, res) => carController.updateCar(req, res));
+carRouter.delete('/:id', Validations.validateJWT, (req, res) => carController.deleteCar(req, res));
 
 export default carRouter;

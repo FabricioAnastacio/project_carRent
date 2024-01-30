@@ -25,6 +25,6 @@ export default class UserController {
     const { payload } = req.body;
     const { status } = await this.serviceUser.deleteUser(payload.email);
 
-    return res.status(mapStatusHTTP(status));
+    return res.status(mapStatusHTTP(status)).json();
   }
 }

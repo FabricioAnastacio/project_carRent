@@ -34,4 +34,12 @@ export default class CarController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async deleteCar(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { payload } = req.body;
+    const { status } = await this.serviceCar.destroyCar(Number(id), payload.role);
+
+    return res.status(mapStatusHTTP(status)).json();
+  }
 }
