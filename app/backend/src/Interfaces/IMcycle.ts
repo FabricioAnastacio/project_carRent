@@ -7,3 +7,11 @@ export interface IMcycle {
   image: string | undefined,
   description: string
 }
+
+export interface IMcycleModel {
+  findAllMcycle(): Promise<IMcycle[] | null>,
+  findById(id: number): Promise<IMcycle | null>,
+  AddMcycle(mcycle: IMcycle): Promise<IMcycle>,
+  updateMcycle(newMcycle: IMcycle, id: number): Promise<void>,
+  deleteMcycle(id: number): Promise<void>
+}

@@ -3,7 +3,7 @@ import db from '.';
 
 class McycleModel extends Model<InferAttributes<McycleModel>,
 InferCreationAttributes<McycleModel>> {
-  declare id: number;
+  declare id: number | undefined;
 
   declare model: string;
 
