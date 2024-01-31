@@ -30,4 +30,10 @@ mcycleRoute.put(
   (req, res) => mcycleController.editMcycle(req, res),
 );
 
+mcycleRoute.delete(
+  '/:id',
+  Validations.validateJWT,
+  (req, res) => mcycleController.deleteMcycle(req, res),
+);
+
 export default mcycleRoute;

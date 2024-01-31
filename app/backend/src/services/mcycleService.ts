@@ -57,6 +57,15 @@ class McycleService {
 
     return { status: 'SUCCESSFUL', data: newMcycle };
   }
+
+  public async destroyMcycle(id: number, role: string): Promise<ServiceResponse<void>> {
+    const validateRole = verifyRoleUser(role);
+    if (validateRole) return { status: validateRole.status, data: validateRole.data };
+
+    await this.modelMcycle.deleteMcycle(id);
+
+    return { status: 'DELETED', data: { message: '' } };
+  }
 }
 
 export default McycleService;

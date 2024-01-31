@@ -41,4 +41,16 @@ export default class McycleController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async deleteMcycle(req: Request, res: Response): Promise<Response> {
+    const { payload } = req.body;
+    const { id } = req.params;
+
+    const { status } = await this.serviceMcycle.destroyMcycle(
+      Number(id),
+      payload.role,
+    );
+
+    return res.status(mapStatusHTTP(status)).json();
+  }
 }

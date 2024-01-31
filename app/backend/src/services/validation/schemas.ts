@@ -17,7 +17,7 @@ export const verifyUpdateDataUser = joi.object().keys({
 });
 
 export const verifyNewDataVehicle = joi.object().keys({
-  model: joi.string().min(4).max(10).required(),
+  model: joi.string().min(3).max(10).required(),
   brand: joi.string().min(4).max(10).required(),
   cc: joi.number().max(2000).required(),
   capacity: joi.number().max(6).required(),
