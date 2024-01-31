@@ -40,6 +40,21 @@ class McycleService {
 
     const newMcycle = await this.modelMcycle.AddMcycle(addMcycle);
 
+    return { status: 'CREATED', data: newMcycle };
+  }
+
+  public async updateMcycle(
+    mcycleInEdit: IMcycle,
+    id: number,
+    role: string,
+  ): Promise<ServiceResponse<IMcycle>> {
+    const validateRole = verifyRoleUser(role);
+    if (validateRole) return { status: validateRole.status, data: validateRole.data };
+
+    await this.modelMcycle.updateMcycle(mcycleInEdit, id);
+
+    const newMcycle = await this.modelMcycle.findById(id) as IMcycle;
+
     return { status: 'SUCCESSFUL', data: newMcycle };
   }
 }

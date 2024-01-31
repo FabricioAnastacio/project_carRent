@@ -28,4 +28,17 @@ export default class McycleController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async editMcycle(req: Request, res: Response): Promise<Response> {
+    const { payload, ...mcycleInEdit } = req.body;
+    const { id } = req.params;
+
+    const { status, data } = await this.serviceMcycle.updateMcycle(
+      mcycleInEdit,
+      Number(id),
+      payload.role,
+    );
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }
