@@ -12,4 +12,10 @@ mcycleRoute.get(
   (req, res) => mcycleController.getAllMcycle(req, res),
 );
 
+mcycleRoute.get(
+  '/:id',
+  Validations.validateJWT,
+  (req, res) => mcycleController.getMcycle(req, res),
+);
+
 export default mcycleRoute;

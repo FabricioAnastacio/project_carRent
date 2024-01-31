@@ -14,6 +14,14 @@ class McycleService {
 
     return { status: 'SUCCESSFUL', data: mcycle };
   }
+
+  public async getById(id: number): Promise<ServiceResponse<IMcycle>> {
+    const mcycle = await this.modelMcycle.findById(id);
+
+    if (!mcycle) return { status: 'NOT_FOUND', data: { message: 'Error, motocycle not found' } };
+
+    return { status: 'SUCCESSFUL', data: mcycle };
+  }
 }
 
 export default McycleService;
