@@ -19,7 +19,7 @@ class ModelMcycle implements IMcycleModel {
   async AddMcycle(mcycle: IMcycle): Promise<IMcycle> {
     const newMcycle = await this.model.create(mcycle);
 
-    return newMcycle;
+    return newMcycle.dataValues;
   }
 
   async updateMcycle(newMcycle: IMcycle, id: number): Promise<void> {

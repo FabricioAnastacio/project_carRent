@@ -1,7 +1,7 @@
 import ModelCar from '../models/carModel';
 import { ICar, ICarModel } from '../Interfaces/ICar';
 import { ServiceResponse } from '../Interfaces/serviceResponse';
-import { validateDataCar, verifyRoleUser } from './validation/validateInput';
+import { validateDataVehicle, verifyRoleUser } from './validation/validateInput';
 
 class CarService {
   constructor(
@@ -28,7 +28,7 @@ class CarService {
     const validateRole = verifyRoleUser(role);
     if (validateRole) return { status: validateRole.status, data: validateRole.data };
 
-    const error = validateDataCar(car);
+    const error = validateDataVehicle(car);
     if (error) return { status: error.status, data: error.data };
 
     const cars = (await this.getAllCars()).data as ICar[];

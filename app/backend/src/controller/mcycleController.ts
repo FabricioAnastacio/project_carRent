@@ -20,4 +20,12 @@ export default class McycleController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async addMcycle(req: Request, res: Response): Promise<Response> {
+    const { payload, ...newMcycle } = req.body;
+
+    const { status, data } = await this.serviceMcycle.createNewMcycle(newMcycle, payload.role);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }

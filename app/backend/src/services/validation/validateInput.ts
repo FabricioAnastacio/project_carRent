@@ -3,6 +3,7 @@ import { ILoginValidation } from '../../Interfaces/ILogin';
 import { IRequestUser, IUpdateUser } from '../../Interfaces/IUser';
 import { verifyNewDataUser, verifyNewDataVehicle, verifyUpdateDataUser } from './schemas';
 import { ICar } from '../../Interfaces/ICar';
+import { IMcycle } from '../../Interfaces/IMcycle';
 
 const emailValid = /^[a-z0-9]+@[a-z0-9]+\.[a-z]/i;
 
@@ -40,7 +41,7 @@ export function validateDataUpdateUser(data: IUpdateUser): ServiceError | null {
   return null;
 }
 
-export function validateDataCar(data: ICar): ServiceError | null {
+export function validateDataVehicle(data: ICar | IMcycle): ServiceError | null {
   const { error } = verifyNewDataVehicle.validate(data);
   if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
   return null;
