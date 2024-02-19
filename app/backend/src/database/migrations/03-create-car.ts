@@ -1,14 +1,23 @@
 import { DataTypes, Model, QueryInterface } from 'sequelize';
-import { IMcycle } from '../../Interfaces/IMcycle';
+import { ICar } from '../../Interfaces/ICar';
 
 export default {
   up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<IMcycle>>('mcycles', {
+    return queryInterface.createTable<Model<ICar>>('cars', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+      },
+      concessionaireId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'concessionaire_id',
+        references: {
+          model: 'stores',
+          key: 'id',
+        },
       },
       model: {
         type: DataTypes.STRING,
@@ -37,6 +46,6 @@ export default {
     });
   },
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('mcycles');
+    return queryInterface.dropTable('cars');
   },
 };

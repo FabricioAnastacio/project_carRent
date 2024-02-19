@@ -9,6 +9,7 @@
     "start": "node ./build/server.js",
     "build": "tsc --project tsconfig.json",
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "all:reset": "cd .. && docker compose down && docker compose up -d --build && cd backend && npm run db:reset",
     "lint": "eslint ./src --ext .ts"
   },
   "keywords": [],

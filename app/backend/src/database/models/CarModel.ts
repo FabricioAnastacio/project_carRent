@@ -1,9 +1,12 @@
 import { DataTypes, InferAttributes, InferCreationAttributes, Model } from 'sequelize';
 import db from '.';
+import StoreModel from './StoreModel';
 
 class CarModel extends Model<InferAttributes<CarModel>,
 InferCreationAttributes<CarModel>> {
   declare id: number | undefined;
+
+  declare concessionaireId: number;
 
   declare model: string;
 
@@ -24,6 +27,10 @@ CarModel.init({
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
+  },
+  concessionaireId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
   brand: {
     type: DataTypes.STRING(20),
@@ -53,6 +60,9 @@ CarModel.init({
   sequelize: db,
   modelName: 'cars',
   timestamps: false,
+  underscored: true,
 });
+
+StoreModel.hasMany(CarModel, { foreignKey: 'concessionaire_id', as: 'cars' });
 
 export default CarModel;

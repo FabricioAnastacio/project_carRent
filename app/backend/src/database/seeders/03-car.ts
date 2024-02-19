@@ -6,6 +6,7 @@ export default {
       'cars',
       [
         {
+          concessionaire_id: 1,
           model: 'Volkswagen',
           brand: 'Golf',
           cc: '250',
@@ -14,6 +15,7 @@ export default {
           description: 'Carro de alta potencia, capas de ir de 0 à 100 em menos de 0,2 segundos',
         },
         {
+          concessionaire_id: 1,
           model: 'Ferrari',
           brand: 'SF90',
           cc: '769',

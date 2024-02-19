@@ -7,15 +7,6 @@ export default {
       [
         {
           name: 'Concessionária FAR',
-          mcycle_id: 1,
-          car_id: 1,
-          user_id: 1,
-        },
-        {
-          name: 'Concessionária FAR',
-          mcycle_id: 2,
-          car_id: 2,
-          user_id: 2,
         },
       ],
       {},

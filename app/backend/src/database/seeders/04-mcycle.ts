@@ -6,6 +6,7 @@ export default {
       'mcycles',
       [
         {
+          concessionaire_id: 1,
           model: 'Honda',
           brand: 'Titan',
           cc: '160',
@@ -14,6 +15,7 @@ export default {
           description: 'Moto de alta potencia, capas de ir de 0 à 100 em menos de 0,2 segundos',
         },
         {
+          concessionaire_id: 1,
           model: 'Yamaha',
           brand: 'XT',
           cc: '660',
