@@ -17,10 +17,15 @@ export const verifyUpdateDataUser = joi.object().keys({
 });
 
 export const verifyNewDataVehicle = joi.object().keys({
+  concessionaireId: joi.number().required(),
   model: joi.string().min(3).max(10).required(),
   brand: joi.string().min(4).max(10).required(),
   cc: joi.number().max(2000).required(),
   capacity: joi.number().max(6).required(),
   image: joi.required(),
   description: joi.string().required(),
+});
+
+export const verifyNewDataConcessionaire = joi.object().keys({
+  name: joi.string().min(2).max(20).required(),
 });

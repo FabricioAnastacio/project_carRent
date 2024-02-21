@@ -12,4 +12,20 @@ export default class StoreController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async getStoreById(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const { status, data } = await this.serviceStore.getById(Number(id));
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
+  public async addNewStore(req: Request, res: Response): Promise<Response> {
+    const { payload, ...newDtaStore } = req.body;
+
+    const { status, data } = await this.serviceStore.addStore(newDtaStore, payload.role);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }
