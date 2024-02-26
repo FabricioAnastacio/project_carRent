@@ -4,8 +4,9 @@ import { IRequestUser, IUpdateUser } from '../../Interfaces/IUser';
 import {
   verifyNewDataConcessionaire,
   verifyNewDataUser,
-  verifyNewDataVehicle,
+  verifyNewDataMcycle,
   verifyUpdateDataUser,
+  verifyNewDataCar,
 } from './schemas';
 import { ICar } from '../../Interfaces/ICar';
 import { IMcycle } from '../../Interfaces/IMcycle';
@@ -47,8 +48,8 @@ export function validateDataUpdateUser(data: IUpdateUser): ServiceError | null {
   return null;
 }
 
-export function validateDataVehicle(data: ICar | IMcycle): ServiceError | null {
-  const { error } = verifyNewDataVehicle.validate(data);
+export function validateDataVehicle(data: ICar | IMcycle, vehicle: string): ServiceError | null {
+  const { error } = (vehicle === 'Mcycle' ? verifyNewDataMcycle : verifyNewDataCar).validate(data);
   if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
   return null;
 }

@@ -28,7 +28,7 @@ class CarService {
     const validateRole = verifyRoleUser(role);
     if (validateRole) return { status: validateRole.status, data: validateRole.data };
 
-    const error = validateDataVehicle(car);
+    const error = validateDataVehicle(car, 'car');
     if (error) return { status: error.status, data: error.data };
 
     const cars = (await this.getAllCars()).data as ICar[];

@@ -28,7 +28,7 @@ class McycleService {
     const validateRole = verifyRoleUser(role);
     if (validateRole) return { status: validateRole.status, data: validateRole.data };
 
-    const error = validateDataVehicle(mcycle);
+    const error = validateDataVehicle(mcycle, 'Mcycle');
     if (error) return { status: error.status, data: error.data };
 
     const mcycles = (await this.getAll()).data as IMcycle[];

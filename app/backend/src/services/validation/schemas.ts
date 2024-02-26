@@ -16,7 +16,7 @@ export const verifyUpdateDataUser = joi.object().keys({
   email: joi.string().regex(emailValid).message(emailInvalid).required(),
 });
 
-export const verifyNewDataVehicle = joi.object().keys({
+export const verifyNewDataMcycle = joi.object().keys({
   concessionaireId: joi.number().required(),
   model: joi.string().min(3).max(10).required(),
   brand: joi.string().min(3).max(10).required(),
@@ -24,6 +24,18 @@ export const verifyNewDataVehicle = joi.object().keys({
   capacity: joi.number().max(6).required(),
   image: joi.required(),
   description: joi.string().required(),
+  price: joi.number().required(),
+});
+
+export const verifyNewDataCar = joi.object().keys({
+  concessionaireId: joi.number().required(),
+  model: joi.string().min(3).max(10).required(),
+  brand: joi.string().min(3).max(10).required(),
+  cv: joi.number().max(2000).required(),
+  capacity: joi.number().max(6).required(),
+  image: joi.required(),
+  description: joi.string().required(),
+  price: joi.number().required(),
 });
 
 export const verifyNewDataConcessionaire = joi.object().keys({
