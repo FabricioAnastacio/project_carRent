@@ -19,6 +19,8 @@ InferCreationAttributes<CarModel>> {
   declare image: string | undefined;
 
   declare description: string;
+
+  declare price: number;
 }
 
 CarModel.init({
@@ -41,11 +43,11 @@ CarModel.init({
     allowNull: false,
   },
   cv: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   capacity: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   description: {
@@ -55,6 +57,10 @@ CarModel.init({
   image: {
     type: DataTypes.STRING(100),
     allowNull: true,
+  },
+  price: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
 }, {
   sequelize: db,

@@ -19,6 +19,8 @@ InferCreationAttributes<McycleModel>> {
   declare image: string | undefined;
 
   declare description: string;
+
+  declare price: number;
 }
 
 McycleModel.init({
@@ -55,6 +57,10 @@ McycleModel.init({
   image: {
     type: DataTypes.STRING(100),
     allowNull: true,
+  },
+  price: {
+    type: DataTypes.NUMBER,
+    allowNull: false,
   },
 }, {
   sequelize: db,

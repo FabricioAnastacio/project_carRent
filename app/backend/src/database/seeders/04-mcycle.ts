@@ -13,6 +13,7 @@ export default {
           capacity: '2',
           image: null,
           description: 'Moto de alta potencia, capas de ir de 0 à 100 em menos de 0,2 segundos',
+          price: 14000,
         },
         {
           concessionaire_id: 1,
@@ -22,6 +23,7 @@ export default {
           capacity: '2',
           image: null,
           description: 'Moto de alta potencia, capas de ir de 0 à 100 em menos de 0,2 segundos',
+          price: 35000,
         },
       ],
       {},

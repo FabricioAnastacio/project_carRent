@@ -6,7 +6,8 @@ export interface IMcycle {
   cc: number,
   capacity: number,
   image: string | undefined,
-  description: string
+  description: string,
+  price: number
 }
 
 export interface IMcycleModel {
