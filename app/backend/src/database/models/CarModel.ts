@@ -12,7 +12,7 @@ InferCreationAttributes<CarModel>> {
 
   declare brand: string;
 
-  declare cc: number;
+  declare cv: number;
 
   declare capacity: number;
 
@@ -40,7 +40,7 @@ CarModel.init({
     type: DataTypes.STRING(20),
     allowNull: false,
   },
-  cc: {
+  cv: {
     type: DataTypes.NUMBER,
     allowNull: false,
   },
@@ -63,6 +63,6 @@ CarModel.init({
   underscored: true,
 });
 
-StoreModel.hasMany(CarModel, { foreignKey: 'concessionaire_id', as: 'cars' });
+StoreModel.hasMany(CarModel, { foreignKey: 'concessionaireId', as: 'cars' });
 
 export default CarModel;

@@ -1,6 +1,8 @@
 import { IMcycle } from './IMcycle';
 
-export interface ICar extends IMcycle {}
+export interface ICar extends Omit<IMcycle, 'cc'> {
+  cv: number,
+}
 
 export interface ICarModel {
   findAllCars(): Promise<ICar[] | null>,

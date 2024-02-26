@@ -63,6 +63,6 @@ McycleModel.init({
   underscored: true,
 });
 
-StoreModel.hasMany(McycleModel, { foreignKey: 'concessionaire_id', as: 'mcycles' });
+StoreModel.hasMany(McycleModel, { foreignKey: 'concessionaireId', as: 'mcycles' });
 
 export default McycleModel;

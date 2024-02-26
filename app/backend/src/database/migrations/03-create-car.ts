@@ -31,7 +31,7 @@ export default {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      cc: {
+      cv: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
