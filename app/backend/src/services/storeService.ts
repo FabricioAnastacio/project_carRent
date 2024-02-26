@@ -63,6 +63,15 @@ class StoreService {
 
     return { status: 'SUCCESSFUL', data: upStore };
   }
+
+  public async deleteDtaStore(id: number, role: string): Promise<ServiceResponse<string>> {
+    const validateRole = verifyRoleUser(role);
+    if (validateRole) return { status: validateRole.status, data: validateRole.data };
+
+    await this.modelStore.delete(id);
+
+    return { status: 'DELETED', data: { message: '' } };
+  }
 }
 
 export default StoreService;

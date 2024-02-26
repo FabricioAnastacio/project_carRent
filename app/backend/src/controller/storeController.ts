@@ -37,4 +37,13 @@ export default class StoreController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async deleteStore(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const { payload } = req.body;
+
+    const { status } = await this.serviceStore.deleteDtaStore(Number(id), payload.role);
+
+    return res.status(mapStatusHTTP(status)).json();
+  }
 }
