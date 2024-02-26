@@ -31,10 +31,6 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      vehicles: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
       role: {
         type: DataTypes.STRING,
         allowNull: false,

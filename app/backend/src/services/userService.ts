@@ -43,6 +43,14 @@ class UserService {
     return { status: 'SUCCESSFUL', data: { role } };
   }
 
+  public async getAllDataUser(email: string): Promise<ServiceResponse<IUser>> {
+    const user = await this.userModel.findByEmail(email);
+
+    if (!user) return { status: 'UNAUTHORIZED', data: { message: '' } };
+
+    return { status: 'SUCCESSFUL', data: user };
+  }
+
   public async addNewUser(people: IRequestUser): Promise<ServiceResponse<IToken>> {
     const error = validateDataUser(people);
     if (error) return { status: error.status, data: error.data };

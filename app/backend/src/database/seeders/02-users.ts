@@ -10,8 +10,7 @@ export default {
           email: 'adimin@gmail.com',
           password: '$2a$10$N2xhK3QyOzyOdkY9Ux4nyuYy6HMNNbjI98P.9UT7PoR/Fir5JN8hW',
           cpf: '999.999.999-99',
-          balance: '9.999',
-          vehicles: null,
+          balance: '9999',
           role: 'admin',
           // senha: admin123
         },
@@ -20,8 +19,7 @@ export default {
           email: 'marlinhoogrande@gmail.com',
           password: '$2a$10$lI/Is3Q9LJwQN06GPMdYSuEwD0t9drcvRjdB4IZ8Lk.iPxz3gmFai',
           cpf: '111.124.561-10',
-          balance: '11.200',
-          vehicles: null,
+          balance: '11200',
           role: 'user',
           // senhaMuuuitoForte
         },
@@ -30,8 +28,7 @@ export default {
           email: 'fabricio01teste@gmail.com',
           password: '$2a$10$ZvnXHIlH4yR3W7LIg10.n.prNpGDFzsx8Ok6tCVlssmDWlV6kf/ye',
           cpf: '130.325.769-21',
-          balance: '20.200',
-          vehicles: null,
+          balance: '20200',
           role: 'admin',
           // senhaMuuuitoFraca
         },

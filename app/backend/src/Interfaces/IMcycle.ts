@@ -1,6 +1,7 @@
 export interface IMcycle {
   id?: number,
-  concessionaireId: number;
+  concessionaireId: number | null,
+  userId: number | null,
   model: string,
   brand: string,
   cc: number,

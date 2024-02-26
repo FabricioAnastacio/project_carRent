@@ -21,8 +21,6 @@ InferCreationAttributes<UserModel>> {
 
   declare balance: string;
 
-  declare vehicles: string | null;
-
   declare role: string;
 }
 
@@ -52,10 +50,6 @@ UserModel.init({
   password: {
     type: DataTypes.STRING(30),
     allowNull: false,
-  },
-  vehicles: {
-    type: DataTypes.STRING(50),
-    allowNull: true,
   },
   role: {
     type: DataTypes.STRING(50),

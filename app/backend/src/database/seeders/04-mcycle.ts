@@ -7,6 +7,7 @@ export default {
       [
         {
           concessionaire_id: 1,
+          user_id: null,
           model: 'Honda',
           brand: 'Titan',
           cc: '160',
@@ -17,6 +18,7 @@ export default {
         },
         {
           concessionaire_id: 1,
+          user_id: null,
           model: 'Yamaha',
           brand: 'XT',
           cc: '660',

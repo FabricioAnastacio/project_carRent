@@ -14,6 +14,14 @@ export default class UserController {
     return res.status(mapStatusHTTP(status)).json(data);
   }
 
+  public async getMeData(req: Request, res: Response): Promise<Response> {
+    const { payload } = req.body;
+
+    const { status, data } = await this.serviceUser.getAllDataUser(payload.email);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
   public async updateUser(req: Request, res: Response): Promise<Response> {
     const { payload, ...dataUpdate } = req.body;
     const { status, data } = await this.serviceUser.updateDataUser(dataUpdate, payload.email);

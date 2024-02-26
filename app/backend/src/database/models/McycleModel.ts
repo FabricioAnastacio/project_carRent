@@ -1,12 +1,15 @@
 import { DataTypes, InferAttributes, InferCreationAttributes, Model } from 'sequelize';
 import db from '.';
 import StoreModel from './StoreModel';
+import UserModel from './UserModel';
 
 class McycleModel extends Model<InferAttributes<McycleModel>,
 InferCreationAttributes<McycleModel>> {
   declare id: number | undefined;
 
-  declare concessionaireId: number;
+  declare concessionaireId: number | null;
+
+  declare userId: number | null;
 
   declare model: string;
 
@@ -32,7 +35,11 @@ McycleModel.init({
   },
   concessionaireId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
   },
   brand: {
     type: DataTypes.STRING(20),
@@ -70,5 +77,6 @@ McycleModel.init({
 });
 
 StoreModel.hasMany(McycleModel, { foreignKey: 'concessionaireId', as: 'mcycles' });
+UserModel.hasMany(McycleModel, { foreignKey: 'userId', as: 'usersMcycles' });
 
 export default McycleModel;
