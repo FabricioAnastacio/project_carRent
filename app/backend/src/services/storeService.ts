@@ -1,7 +1,7 @@
 import { ServiceResponse } from '../Interfaces/serviceResponse';
 import { IModelStore, IStore } from '../Interfaces/IStore';
 import ModelStore from '../models/storeModel';
-import { valudateDataConcessionaire, verifyRoleUser } from './validation/validateInput';
+import { validateDataConcessionaire, verifyRoleUser } from './validation/validateInput';
 
 class StoreService {
   constructor(
@@ -28,7 +28,7 @@ class StoreService {
     const validateRole = verifyRoleUser(role);
     if (validateRole) return { status: validateRole.status, data: validateRole.data };
 
-    const error = valudateDataConcessionaire(concessionaire);
+    const error = validateDataConcessionaire(concessionaire);
     if (error) return { status: error.status, data: error.data };
 
     const allStore = (await this.getAll()).data as IStore[];
@@ -44,6 +44,24 @@ class StoreService {
     const addNewStore = await this.modelStore.createStore(newDtaConcessionaire);
 
     return { status: 'SUCCESSFUL', data: addNewStore };
+  }
+
+  public async editStore(id: number, data: IStore, role: string): Promise<ServiceResponse<IStore>> {
+    const validateRole = verifyRoleUser(role);
+    if (validateRole) return { status: validateRole.status, data: validateRole.data };
+
+    const error = validateDataConcessionaire(data);
+    if (error) return { status: error.status, data: error.data };
+
+    const allStore = (await this.getAll()).data as IStore[];
+
+    const isStore = allStore.find((store) => store.name === data.name);
+    if (isStore) return { status: 'CONFLICT', data: { message: 'concessionaire already exist' } };
+
+    await this.modelStore.updateStore(data, id);
+    const upStore = await this.modelStore.findById(id) as IStore;
+
+    return { status: 'SUCCESSFUL', data: upStore };
   }
 }
 

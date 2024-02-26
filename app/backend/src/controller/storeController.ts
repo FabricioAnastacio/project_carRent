@@ -28,4 +28,13 @@ export default class StoreController {
 
     return res.status(mapStatusHTTP(status)).json(data);
   }
+
+  public async upDateStore(req: Request, res: Response): Promise<Response> {
+    const { payload, ...newData } = req.body;
+    const { id } = req.params;
+
+    const { status, data } = await this.serviceStore.editStore(Number(id), newData, payload.role);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
 }

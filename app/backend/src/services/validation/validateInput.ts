@@ -53,7 +53,7 @@ export function validateDataVehicle(data: ICar | IMcycle): ServiceError | null {
   return null;
 }
 
-export function valudateDataConcessionaire(data: IStore): ServiceError | null {
+export function validateDataConcessionaire(data: IStore): ServiceError | null {
   const { error } = verifyNewDataConcessionaire.validate(data);
   if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
   return null;
