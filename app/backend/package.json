@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsnd --watch \"./src/**\" --transpile-only ./src/server.ts",
     "start": "node ./build/server.js",
+    "build": "tsc --project tsconfig.json",
+    "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "all:reset": "cd .. && docker compose down && docker compose up -d --build && cd backend && npm run db:reset",
     "lint": "eslint ./src --ext .ts"
   },
   "keywords": [],
@@ -28,6 +31,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-mocha": "^10.2.0",
     "eslint-plugin-sonarjs": "^0.23.0",
+    "joi": "^17.12.0",
     "nodemon": "^3.0.3",
     "sequelize-cli": "^6.6.2",
     "ts-node": "^10.9.2",
