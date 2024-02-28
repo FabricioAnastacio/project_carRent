@@ -29,6 +29,13 @@ export default class UserController {
     return res.status(mapStatusHTTP(status)).json(data);
   }
 
+  public async editMoneyUser(req: Request, res: Response): Promise<Response> {
+    const { payload, ...dataEdit } = req.body;
+    const { status, data } = await this.serviceUser.updateBalance(dataEdit, payload.email);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
   public async delete(req: Request, res: Response): Promise<Response> {
     const { payload } = req.body;
     const { status } = await this.serviceUser.deleteUser(payload.email);

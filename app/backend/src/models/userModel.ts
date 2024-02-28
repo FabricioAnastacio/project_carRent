@@ -1,10 +1,9 @@
-import { IUpdateUser, IUser } from '../Interfaces/IUser';
+import { IFunctionsUser, IUpdateUser, IUser } from '../Interfaces/IUser';
 import UserModel from '../database/models/UserModel';
-import { ILogin } from '../Interfaces/ILogin';
 import McycleModel from '../database/models/McycleModel';
 import CarModel from '../database/models/CarModel';
 
-class ModelUser implements ILogin {
+class ModelUser implements IFunctionsUser {
   private model = UserModel;
   private include = [
     {
@@ -20,6 +19,11 @@ class ModelUser implements ILogin {
   ];
 
   async findByEmail(email: string): Promise<IUser | null> {
+    const user = await this.model.findOne({ where: { email } });
+    return user;
+  }
+
+  async findByEmailResponse(email: string): Promise<IUser | null> {
     const user = await this.model.findOne(
       {
         where: { email },
@@ -34,7 +38,7 @@ class ModelUser implements ILogin {
     await this.model.create(user);
   }
 
-  async updateUser(user: IUpdateUser, email: string): Promise<void> {
+  async updateUser(user: IUpdateUser | { balance: string }, email: string): Promise<void> {
     await this.model.update(
       { ...user },
       { where: { email } },

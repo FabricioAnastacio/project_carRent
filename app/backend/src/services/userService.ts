@@ -1,15 +1,20 @@
 import * as bcrypt from 'bcryptjs';
 import { ServiceResponse } from '../Interfaces/serviceResponse';
-import { ILogin, ILoginRole, ILoginValidation } from '../Interfaces/ILogin';
+import { ILoginRole, ILoginValidation } from '../Interfaces/ILogin';
 import IToken from '../Interfaces/IToken';
-import { validateDataUpdateUser, validateDataUser, verifyUser } from './validation/validateInput';
 import JWT, { TokenPayload } from '../utils/JWT';
-import { IRequestUser, IUpdateUser, IUser } from '../Interfaces/IUser';
 import ModelUser from '../models/userModel';
+import { IFunctionsUser, IRequestUser, IUpdateUser, IUser } from '../Interfaces/IUser';
+import {
+  validateDataUpdateUser,
+  validateDataUser,
+  validateDataUserMoney,
+  verifyUser,
+} from './validation/validateInput';
 
 class UserService {
   constructor(
-    private userModel: ILogin = new ModelUser(),
+    private userModel: IFunctionsUser = new ModelUser(),
   ) {}
 
   public async validateUser(people: ILoginValidation): Promise<ServiceResponse<IToken>> {
@@ -44,9 +49,7 @@ class UserService {
   }
 
   public async getAllDataUser(email: string): Promise<ServiceResponse<IUser>> {
-    const user = await this.userModel.findByEmail(email);
-
-    if (!user) return { status: 'UNAUTHORIZED', data: { message: '' } };
+    const user = await this.userModel.findByEmailResponse(email) as IUser;
 
     return { status: 'SUCCESSFUL', data: user };
   }
@@ -90,6 +93,18 @@ class UserService {
     await this.userModel.updateUser(upUser, emailUser);
 
     return { status: 'SUCCESSFUL', data: { message: 'Updated' } };
+  }
+
+  public async updateBalance(
+    money: { balance: string },
+    email: string,
+  ): Promise<ServiceResponse<string>> {
+    const error = validateDataUserMoney(money);
+    if (error) return { status: error.status, data: error.data };
+
+    await this.userModel.updateUser(money, email);
+
+    return { status: 'SUCCESSFUL', data: { message: 'Information changed successfully' } };
   }
 
   public async deleteUser(email: string): Promise<ServiceResponse<void>> {

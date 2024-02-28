@@ -7,6 +7,7 @@ import {
   verifyNewDataMcycle,
   verifyUpdateDataUser,
   verifyNewDataCar,
+  verificDataUserEditMoney,
 } from './schemas';
 import { ICar } from '../../Interfaces/ICar';
 import { IMcycle } from '../../Interfaces/IMcycle';
@@ -56,6 +57,12 @@ export function validateDataVehicle(data: ICar | IMcycle, vehicle: string): Serv
 
 export function validateDataConcessionaire(data: IStore): ServiceError | null {
   const { error } = verifyNewDataConcessionaire.validate(data);
+  if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
+  return null;
+}
+
+export function validateDataUserMoney(data: { balance: string }): ServiceError | null {
+  const { error } = verificDataUserEditMoney.validate(data);
   if (error) return { status: 'INVALID_VALUE', data: { message: error.message } };
   return null;
 }

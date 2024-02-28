@@ -20,3 +20,11 @@ export interface IUpdateUser {
   password: string,
   email: string,
 }
+
+export interface IFunctionsUser {
+  findByEmail(email: string): Promise<IUser | null>,
+  findByEmailResponse(email: string): Promise<IUser | null>,
+  createUser(user: IUser): Promise<void>,
+  updateUser(newDtaUser: IUpdateUser | { balance: string }, email: string): Promise<void>,
+  delete(email: string): Promise<void>
+}

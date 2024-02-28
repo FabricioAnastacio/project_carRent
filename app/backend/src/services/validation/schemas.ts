@@ -43,3 +43,7 @@ export const verifyNewDataCar = joi.object().keys({
 export const verifyNewDataConcessionaire = joi.object().keys({
   name: joi.string().min(2).max(20).required(),
 });
+
+export const verificDataUserEditMoney = joi.object().keys({
+  balance: joi.string().min(2).required(),
+});
