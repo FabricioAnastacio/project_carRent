@@ -30,7 +30,7 @@ export const verifyNewDataMcycle = joi.object().keys({
 
 export const verifyNewDataCar = joi.object().keys({
   concessionaireId: joi.number().required(),
-  userId: joi.number().required(),
+  userId: joi.required(),
   model: joi.string().min(3).max(10).required(),
   brand: joi.string().min(3).max(10).required(),
   cv: joi.number().max(2000).required(),
