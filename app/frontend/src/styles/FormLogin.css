@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.background_page {
+  background-color: gray;
+  border-radius: 5px;
+  margin: 3vi 3vi;
+  padding: 20vi 47vi;
+  position: absolute;
+}
+
+form {
+  align-items: center;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  flex-flow: column;
+  display: flex;
+  margin: 1vi 65vi;
+  padding: 12vi 7vi;
+  position: fixed;
+}
+
+h1 {
+  color: white;
+  font-family: sans-serif;
+  font-size: 40px;
+  margin: 4vi 68vi;
+  position: absolute;
+  z-index: 1;
+}
+
+.inputs {
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+}
+
+.inputs label {
+  bottom: 5px;
+  color: gray;
+  cursor: text;
+  font-size: 15px;
+  left: 10px;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+}
+
+input {
+  color: white;
+  background-color: unset;
+  border: 0;
+  border-bottom: 3px solid white;
+  border-radius: 10px;
+  outline: 0;
+  padding: 5px 8px;
+  &:hover {
+    box-shadow: 0 0 1px 0 blue inset, 0 0 19px 5px blue;
+  }
+  &:focus, &:valid {
+    border-bottom: 3px solid blue;
+  }
+  &:focus ~ label,
+  &:valid ~ label {
+    color: #00c8fa;
+    font-size: 12px;
+    transform: translateY(-24px);
+  }
+}
+
+button {
+  background-color: blue;
+}
+
+.button-false {
+  border: 1px  blue;
+  border-radius: 10rem;
+  color: #fff;
+  margin-left: 14vi;
+  margin-top: 14vi;
+  overflow: hidden;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  z-index: 1;
+  &::before {
+    background-color: #00c8fa;
+    bottom: 0;
+    border-radius: 10rem;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s;
+    width: 0%;
+    z-index: -1;
+  }
+  &::after {
+    background-color: blue;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+  &:hover {
+    box-shadow: 0 0 10px 0 #00c8fa inset, 0 0 10px 4px #00c8fa;
+    color: black;
+    transition: all 250ms ease-in-out;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.button-true {
+  background-color: black;
+  border: 1px  blue;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  color: gray;
+  margin-left: 14vi;
+  margin-top: 14vi;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+}
+

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/FormLogin.css';
 
 function FormLogin() {
   const [emailLogin, setEmail] = useState('');
@@ -21,29 +22,39 @@ function FormLogin() {
   };
 
   return (
-    <form onSubmit={ (e) => handleSubmit(e) }>
-      <h3>Login</h3>
-      <label htmlFor="email">Email</label>
-      <input
-        value={ emailLogin }
-        onChange={ handleChange }
-        name="email"
-        id="email"
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        value={ passwordLogin }
-        onChange={ handleChange }
-        name="password"
-        id="password"
-      />
-      <button
-        type="submit"
-        disabled={ !isDisabled }
-      >
-        Login
-      </button>
-    </form>
+    <>
+      <div className="background_page" />
+      <h1>Your Account</h1>
+      <form onSubmit={ (e) => handleSubmit(e) }>
+        <div className="inputs">
+          <input
+            required
+            value={ emailLogin }
+            onChange={ handleChange }
+            name="email"
+            id="email"
+          />
+          <label htmlFor="email">Email</label>
+        </div>
+        <div className="inputs">
+          <input
+            required
+            value={ passwordLogin }
+            onChange={ handleChange }
+            name="password"
+            id="password"
+          />
+          <label htmlFor="password">Password</label>
+        </div>
+        <button
+          type="submit"
+          className={ `button-${!isDisabled}` }
+          disabled={ !isDisabled }
+        >
+          Login
+        </button>
+      </form>
+    </>
   );
 }
 
