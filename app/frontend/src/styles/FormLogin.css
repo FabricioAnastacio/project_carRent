@@ -71,13 +71,11 @@ input {
   }
 }
 
-button {
-  background-color: blue;
-}
-
 .button-false {
+  background-color: blue;
   border: 1px  blue;
   border-radius: 10rem;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
   color: #fff;
   margin-left: 14vi;
   margin-top: 14vi;
@@ -119,7 +117,7 @@ button {
 }
 
 .button-true {
-  background-color: black;
+  background-color: unset;
   border: 1px  blue;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
@@ -131,3 +129,33 @@ button {
   transition: all 250ms ease-in-out;
 }
 
+.button-register-true {
+  background-color: unset;
+  box-shadow: 0 0 10px 0 rgb(255, 22, 22) inset, 0 0 10px 4px rgb(255, 0, 0);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  margin-left: -14vi;
+  margin-top: 14vi;
+  padding: 7px 30px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: red;
+    box-shadow: 0 0 10px 0 rgb(255, 22, 22) inset, 0 0 10px 4px rgb(255, 70, 70);
+    color: black;
+    transition: all 250ms ease-in-out;
+  }
+}
+
+.button-register-false {
+  background-color: unset;
+  border: 0;
+  border-radius: 10px;
+  color: gray;
+  margin-left: -14vi;
+  margin-top: 14vi;
+  padding: 7px 30px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+}

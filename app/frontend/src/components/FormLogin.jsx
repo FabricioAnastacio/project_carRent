@@ -53,6 +53,13 @@ function FormLogin() {
         >
           Login
         </button>
+        <button
+          type="button"
+          className={ `button-register-${!isDisabled}` }
+          disabled={ !isDisabled }
+        >
+          Register
+        </button>
       </form>
     </>
   );
