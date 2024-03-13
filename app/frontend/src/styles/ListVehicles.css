@@ -1,0 +1,19 @@
+.list-vehicles {
+  width: 120px;
+  height: 150px;
+  margin: 2vi 15vi 0 20vi;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.list-vehicles ul {
+  color: gray;
+  position: absolute;
+}
+
+.list-vehicles li:hover {
+  color: white;
+  cursor: default;
+  font-size: 20px;
+}

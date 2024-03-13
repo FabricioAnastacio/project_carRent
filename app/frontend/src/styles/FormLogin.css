@@ -4,18 +4,29 @@
   padding: 0;
 }
 
-.background_page {
-  background-color: gray;
+.background-Login {
   border-radius: 5px;
   margin: 3vi 3vi;
-  padding: 20vi 47vi;
+  height: 86%;
+  width: 94%;
+  background-color: black;
   position: absolute;
 }
 
-form {
+img {
+  height: 450px;
+  width: 900px;
+  top: 40px;
+  left: 0px;
+  filter: contrast(1.7) brightness(0.8);
+  position: absolute;
+}
+
+.form-login {
   align-items: center;
   background-color: black;
-  border: 1px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
   border-radius: 5px;
   flex-flow: column;
   display: flex;
@@ -33,13 +44,36 @@ h1 {
   z-index: 1;
 }
 
-.inputs {
+.intro-login {
+  position: absolute;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.090) ;
+  border-left: 1px solid white;
+  border-radius: 20px;
+  margin-top: 4vi;
+  margin-left: 5vi;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.intro-login h3 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.intro-login p {
+  font-size: 20px;
+}
+
+.inputs-login {
   margin-top: 30px;
   position: relative;
   width: 100%;
 }
 
-.inputs label {
+.inputs-login label {
   bottom: 5px;
   color: gray;
   cursor: text;
@@ -49,7 +83,7 @@ h1 {
   transition: 0.2s ease-in-out;
 }
 
-input {
+.inputs-login input {
   color: white;
   background-color: unset;
   border: 0;
@@ -129,7 +163,7 @@ input {
   transition: all 250ms ease-in-out;
 }
 
-.button-register-true {
+.button-register-false {
   background-color: unset;
   box-shadow: 0 0 10px 0 rgb(255, 22, 22) inset, 0 0 10px 4px rgb(255, 0, 0);
   border: 0;
@@ -148,7 +182,7 @@ input {
   }
 }
 
-.button-register-false {
+.button-register-true {
   background-color: unset;
   border: 0;
   border-radius: 10px;

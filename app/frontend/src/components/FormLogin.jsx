@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/FormLogin.css';
+import { marcsVehicles, textPLogin } from '../services/textsByHtml';
+import ListVehicles from './ListVehicles';
 
-function FormLogin() {
+function FormLogin(props) {
+  const { navigate } = props;
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setpassword] = useState('');
   const [isDisabled, setStateButton] = useState(true);
@@ -16,6 +20,11 @@ function FormLogin() {
     e.preventDefault();
   };
 
+  const handleRegister = (e) => {
+    e.preventDefault();
+    navigate('/register');
+  };
+
   const handleChange = ({ target }) => {
     if (target.name === 'email') setEmail(target.value);
     if (target.name === 'password') setpassword(target.value);
@@ -23,10 +32,21 @@ function FormLogin() {
 
   return (
     <>
-      <div className="background_page" />
+      <figure className="background-Login">
+        <img
+          src="https://static.vecteezy.com/ti/fotos-gratis/t1/2103007-frente-de-um-carro-esporte-em-um-fundo-escuro-com-texto-para-espaco-foto.jpg"
+          alt="car"
+        />
+      </figure>
       <h1>Your Account</h1>
-      <form onSubmit={ (e) => handleSubmit(e) }>
-        <div className="inputs">
+      <section className="intro-login">
+        <h3>Melhor loja de veiculos do mundo</h3>
+        <p>{ textPLogin }</p>
+        <p>{ marcsVehicles }</p>
+        <ListVehicles />
+      </section>
+      <form className="form-login" onSubmit={ (e) => handleSubmit(e) }>
+        <div className="inputs-login">
           <input
             required
             value={ emailLogin }
@@ -36,7 +56,7 @@ function FormLogin() {
           />
           <label htmlFor="email">Email</label>
         </div>
-        <div className="inputs">
+        <div className="inputs-login">
           <input
             required
             value={ passwordLogin }
@@ -54,9 +74,9 @@ function FormLogin() {
           Login
         </button>
         <button
-          type="button"
-          className={ `button-register-${!isDisabled}` }
-          disabled={ !isDisabled }
+          className={ `button-register-${isDisabled}` }
+          disabled={ isDisabled }
+          onClick={ handleRegister }
         >
           Register
         </button>
@@ -64,5 +84,9 @@ function FormLogin() {
     </>
   );
 }
+
+FormLogin.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
 
 export default FormLogin;
