@@ -1,0 +1,134 @@
+.register {
+  height: 100%;
+}
+
+.backdrund-Register {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  position: absolute;
+  font-family: sans-serif;
+  margin: 0 0 540px -100px;
+  font-size: 40px;
+  padding: 10px;
+  z-index: 1;
+  color: white;
+}
+
+.form-register {
+  background-color: black;
+  color: white;
+  display: flex;
+  margin: 0 10px;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  justify-content: center;
+  flex-flow: column;
+  height: 95vh;
+  width: 80vh;
+}
+
+.inputs-register {
+  margin: 30px 75px;
+  position: relative;
+  width: 100%;
+}
+
+.inputs-register label {
+  bottom: 5px;
+  color: gray;
+  cursor: text;
+  font-size: 18px;
+  left: 16px;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+}
+
+.inputs-register input {
+  color: white;
+  background-color: unset;
+  border: 0;
+  border-bottom: 3px solid white;
+  outline: 0;
+  border-radius: 10em;
+  font-size: 18px;
+  padding: 5px 20px;
+  width: 70%;
+  &:hover {
+    box-shadow: 0 0 0 0 blue inset, 0 18px 20px 0 blue;
+  }
+  &:focus, &:valid {
+    border-bottom: 3px solid blue;
+  }
+  &:focus ~ label,
+  &:valid ~ label {
+    color: #00c8fa;
+    font-size: 14px;
+    transform: translateY(-36px);
+  }
+}
+
+.btm-false {
+  background-color: blue;
+  border: 1px  blue;
+  border-radius: 10rem;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  color: #fff;
+  margin-left: 24vi;
+  margin-top: 34vi;
+  overflow: hidden;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  z-index: 1;
+  &::before {
+    background-color: #00c8fa;
+    bottom: 0;
+    border-radius: 10rem;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s;
+    width: 0%;
+    z-index: -1;
+  }
+  &::after {
+    background-color: blue;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+  &:hover {
+    box-shadow: 0 0 10px 0 #00c8fa inset, 0 0 10px 4px #00c8fa;
+    color: black;
+    transition: all 250ms ease-in-out;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.btm-true {
+  background-color: unset;
+  border: 1px  blue;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  color: gray;
+  margin-left: 24vi;
+  margin-top: 34vi;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+}
+

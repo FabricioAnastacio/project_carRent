@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.background-Login {
+  border-radius: 5px;
+  margin: 3vi 3vi;
+  height: 86%;
+  width: 94%;
+  background-color: black;
+  position: absolute;
+}
+
+img {
+  height: 450px;
+  width: 900px;
+  top: 40px;
+  left: 0px;
+  filter: contrast(1.7) brightness(0.8);
+  position: absolute;
+}
+
+.form-login {
+  align-items: center;
+  background-color: black;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-radius: 5px;
+  flex-flow: column;
+  display: flex;
+  margin: 1vi 65vi;
+  padding: 12vi 7vi;
+  position: fixed;
+}
+
+h1 {
+  color: white;
+  font-family: sans-serif;
+  font-size: 40px;
+  margin: 4vi 68vi;
+  position: absolute;
+  z-index: 1;
+}
+
+.intro-login {
+  position: absolute;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.090) ;
+  border-left: 1px solid white;
+  border-radius: 20px;
+  margin-top: 4vi;
+  margin-left: 5vi;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.intro-login h3 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.intro-login p {
+  font-size: 20px;
+}
+
+.inputs-login {
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+}
+
+.inputs-login label {
+  bottom: 5px;
+  color: gray;
+  cursor: text;
+  font-size: 15px;
+  left: 10px;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+}
+
+.inputs-login input {
+  color: white;
+  background-color: unset;
+  border: 0;
+  border-bottom: 3px solid white;
+  border-radius: 10px;
+  outline: 0;
+  padding: 5px 8px;
+  &:hover {
+    box-shadow: 0 0 1px 0 blue inset, 0 0 19px 5px blue;
+  }
+  &:focus, &:valid {
+    border-bottom: 3px solid blue;
+  }
+  &:focus ~ label,
+  &:valid ~ label {
+    color: #00c8fa;
+    font-size: 12px;
+    transform: translateY(-24px);
+  }
+}
+
+.button-false {
+  background-color: blue;
+  border: 1px  blue;
+  border-radius: 10rem;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  color: #fff;
+  margin-left: 14vi;
+  margin-top: 14vi;
+  overflow: hidden;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  z-index: 1;
+  &::before {
+    background-color: #00c8fa;
+    bottom: 0;
+    border-radius: 10rem;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s;
+    width: 0%;
+    z-index: -1;
+  }
+  &::after {
+    background-color: blue;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+  &:hover {
+    box-shadow: 0 0 10px 0 #00c8fa inset, 0 0 10px 4px #00c8fa;
+    color: black;
+    transition: all 250ms ease-in-out;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.button-true {
+  background-color: unset;
+  border: 1px  blue;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  color: gray;
+  margin-left: 14vi;
+  margin-top: 14vi;
+  padding: 7px 40px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+}
+
+.button-register-false {
+  background-color: unset;
+  box-shadow: 0 0 10px 0 rgb(255, 22, 22) inset, 0 0 10px 4px rgb(255, 0, 0);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  margin-left: -14vi;
+  margin-top: 14vi;
+  padding: 7px 30px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: red;
+    box-shadow: 0 0 10px 0 rgb(255, 22, 22) inset, 0 0 10px 4px rgb(255, 70, 70);
+    color: black;
+    transition: all 250ms ease-in-out;
+  }
+}
+
+.button-register-true {
+  background-color: unset;
+  border: 0;
+  border-radius: 10px;
+  color: gray;
+  margin-left: -14vi;
+  margin-top: 14vi;
+  padding: 7px 30px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+}
